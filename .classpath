@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="javasrc"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="clojure.jar" sourcepath="clojure-src.jar"/>
-	<classpathentry kind="lib" path="clojure-contrib.jar" sourcepath="clojure-contrib-src.jar"/>
 	<classpathentry kind="lib" path="classes"/>
+	<classpathentry kind="lib" path="commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="httpcore-4.0.1.jar"/>
+	<classpathentry kind="lib" path="httpclient-4.0.1.jar"/>
+	<classpathentry kind="lib" path="clojure-contrib-1.2.0.jar"/>
+	<classpathentry kind="lib" path="clojure.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
