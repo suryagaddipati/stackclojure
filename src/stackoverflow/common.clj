@@ -10,3 +10,5 @@
 (defn stats []
  (first (:statistics 
    (get-json "http://api.stackoverflow.com/1.0/stats"))))
+
+(defn- query-string [] )

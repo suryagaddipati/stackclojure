@@ -6,13 +6,15 @@
 (def *q-answers-url* "http://api.stackoverflow.com/1.0/questions/%s/answers" )
 
 (defn question-answers [id]
- (get-json (format *q-answers-url* id ) ) )
+ (do ;(print "** in  answers") 
+ (get-json (format *q-answers-url* id ) ) ))
 
 (defn question [page-num]
   ( let [ question-result
     (first  (:questions 
       (get-json (format *question-page-url* page-num))))]
-  (merge {:answers (question-answers (:question_id question-result) ) } question-result )))
+  (merge {:answers (delay 
+                     (question-answers  (:question_id question-result))) } question-result )))
 
 (defn question-seq
   ([] (question-seq 1)) ;start from page 1
