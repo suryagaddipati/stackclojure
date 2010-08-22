@@ -1,10 +1,18 @@
 (ns stackoverflow.questions
   (:use stackoverflow.common))
 
+(def *question-page-url* "http://api.stackoverflow.com/1.0/questions?pagesize=1&page=%s" )
+
+(def *q-answers-url* "http://api.stackoverflow.com/1.0/questions/%s/answers" )
+
+(defn question-answers [id]
+ (get-json (format *q-answers-url* id ) ) )
+
 (defn question [page-num]
-(do ;(println (str "Page-NUM :" page-num)) 
-  (first  (:questions 
-   (get-json (str "http://api.stackoverflow.com/1.0/questions?pagesize=1&page=" page-num))))))
+  ( let [ question-result
+    (first  (:questions 
+      (get-json (format *question-page-url* page-num))))]
+  (merge {:answers (question-answers (:question_id question-result) ) } question-result )))
 
 (defn question-seq
   ([] (question-seq 1)) ;start from page 1
