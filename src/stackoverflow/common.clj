@@ -4,6 +4,11 @@
 
 
 
+(defn stream 
+  ([f ] (stream f 1)) ;start from page 1
+  ( [f x]
+  (lazy-seq  (cons (f x)  (stream ( inc x)) ) ) ))
+
 (defn- query-param [x]
  (str  (name (first x) ) "=" (last x)) )
 

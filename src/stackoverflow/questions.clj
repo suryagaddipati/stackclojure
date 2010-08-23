@@ -16,10 +16,7 @@
   (merge {:answers (delay 
                      (question-answers  (:question_id question-result))) } question-result )))
 
-(defn question-seq
-  ([] (question-seq 1)) ;start from page 1
-  ( [x]
-  (lazy-seq  (cons (question x)  (question-seq  ( inc x)) ) ) ))
+(def question-seq (partial stream question) )
 
 (def questions (question-seq))
 
