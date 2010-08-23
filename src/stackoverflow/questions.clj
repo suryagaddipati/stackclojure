@@ -7,7 +7,7 @@
 
 (defn question-answers [id]
  (do ;(print "** in  answers") 
- (get-json (format *q-answers-url* id ) ) ))
+  (:answers (get-json (format *q-answers-url* id ) ) )))
 
 (defn question [page-num]
   ( let [ question-result

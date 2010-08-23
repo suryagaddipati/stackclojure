@@ -3,5 +3,7 @@
 
 (def *moderators-url* "http://api.stackoverflow.com/1.0/users/moderators")
 
-(defn moderators []
- (get-json *moderators-url*) )
+(defn moderators [params]
+ (get-json *moderators-url* params) )
+
+
